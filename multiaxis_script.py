@@ -244,14 +244,11 @@ class FocusMotor:
 
 
 
-def main (plot=1, data_files = None):
+def main (data_file, plot=1):
 
-    if data_files is None:
-        print 'using default data files'
-        data_files = ['/home/floris/calibrations/hydra_cal_files/20100506_multiaxis/motor6d_info_20100506_183030_axis2.txt',
-                        '/home/floris/calibrations/hydra_cal_files/20100506_multiaxis/motor6d_info_20100506_183030_axis1.txt',
-                        '/home/floris/calibrations/hydra_cal_files/20100506_multiaxis/motor6d_info_20100506_183030_axis3.txt']
-
+    if type(data_files) is not list:
+        print 'not a list, making it a list'
+        data_files = [data_files]
 
     rays = []    
     for data_file in data_files[0:3]:                      
